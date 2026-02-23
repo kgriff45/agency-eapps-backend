@@ -304,7 +304,7 @@ const policyTypes = {
     pdfTemplate: 'NBND',
 
     fields: [
-      { key: 'bond_number', label: 'Bond Number' },
+      { key: 'policy_number', label: 'Bond Number' },
       { key: 'effective_date', label: 'Effective Date' },
       { key: 'expiration_date', label: 'Expiration Date' },
       { key: 'premium', label: 'Premium', format: 'currency' },
@@ -333,6 +333,159 @@ const policyTypes = {
 
     endorsements: [],
     notices:      [],
+  },
+  SBND: {
+    code: 'SBND',
+    label: 'Surety Bond',
+    icon: 'gavel',
+    pdfTemplate: 'SBND',
+
+    fields: [
+      { key: 'policy_number', label: 'Bond Number' },
+      { key: 'effective_date', label: 'Effective Date' },
+      { key: 'expiration_date', label: 'Expiration Date' },
+      { key: 'premium', label: 'Premium', format: 'currency' },
+      { key: 'carrier', label: 'Issuing Company' },
+      { key: 'premium_payable', label: 'Carrier' },
+    ],
+
+    questions: [
+    {
+      id: 'business_changes',
+      title: 'There have been changes to ownership or business structure',
+      description: 'Ownership, partnership structure, entity type, or controlling interest has changed since the last bond term.',
+      group: 'underwriting',
+    },
+    {
+      id: 'financial_changes',
+      title: 'There have been significant financial changes',
+      description: 'Revenue, net worth, credit standing, or banking relationships have materially changed.',
+      group: 'underwriting',
+    },
+    {
+      id: 'claims',
+      title: 'Any claims, bond calls, or notices have been made',
+      description: 'Any claim, demand, or notice of potential claim has been made against the bond during the current term.',
+      group: 'claims',
+    },
+    {
+      id: 'regulatory_actions',
+      title: 'Any regulatory or licensing actions have occurred',
+      description: 'Any suspension, revocation, investigation, or disciplinary action involving the principal or related entity.',
+      group: 'compliance',
+    },
+    {
+      id: 'contract_default',
+      title: 'Any defaults, terminations, or contract disputes have occurred',
+      description: 'The principal has been declared in default or involved in a material contractual dispute.',
+      group: 'underwriting',
+    },
+    {
+      id: 'bankruptcy',
+      title: 'Any bankruptcy, insolvency, or collection proceedings',
+      description: 'The principal or any owner has filed for bankruptcy or is subject to collection or lien proceedings.',
+      group: 'financial',
+    },
+    {
+      id: 'bond_amount_change',
+      title: 'Requesting a change to bond amount',
+      description: 'The obligee requires an increase or decrease to the bond limit.',
+      group: 'coverage',
+    },
+    {
+      id: 'obligee_change',
+      title: 'Obligee information has changed',
+      description: 'The obligee name or requirements have changed since issuance.',
+      group: 'coverage',
+    },
+    {
+      id: 'address_change',
+      title: 'Business address has changed',
+      description: 'The principal’s mailing or physical address has changed.',
+      group: 'general',
+    },
+  ],
+
+  questionGroups: [
+    { id: 'general', label: 'General Information Updates' },
+    { id: 'underwriting', label: 'Underwriting & Risk Changes' },
+    { id: 'financial', label: 'Financial Condition' },
+    { id: 'claims', label: 'Claims & Bond Activity' },
+    { id: 'compliance', label: 'Regulatory & Licensing' },
+    { id: 'coverage', label: 'Bond Coverage Changes' },
+  ],
+
+  endorsements: [
+    {
+      id: 'rider_increase',
+      label: 'Bond Amount Rider',
+      description: 'Rider issued to increase or decrease the bond limit.',
+    },
+    {
+      id: 'name_change_rider',
+      label: 'Name Change Rider',
+      description: 'Rider issued to reflect a legal name change.',
+    },
+    {
+      id: 'address_change_rider',
+      label: 'Address Change Rider',
+      description: 'Rider issued to reflect an updated business address.',
+    },
+  ],
+
+  notices: [
+  ],
+  },
+  INLM: {
+    code: 'INLM',
+    label: 'Inland Marine',
+    icon: 'inventory_2',
+    pdfTemplate: 'SBND',
+
+    fields: [
+      { key: 'policy_number', label: 'Policy Number' },
+      { key: 'effective_date', label: 'Effective Date' },
+      { key: 'expiration_date', label: 'Expiration Date' },
+      { key: 'premium', label: 'Premium', format: 'currency' },
+      { key: 'carrier', label: 'Issuing Company' },
+      { key: 'premium_payable', label: 'Carrier' },
+    ],
+
+   questions: [
+    {
+      id: 'property_schedule_change',
+      title: 'Equipment or property schedule has changed',
+      description: 'Items have been added, removed, replaced, or values have changed since the last policy term.',
+      group: 'coverage',
+    },
+    {
+      id: 'new_equipment_high_value',
+      title: 'New high-value equipment acquired',
+      description: 'Any newly acquired equipment with a value exceeding previous reporting thresholds.',
+      group: 'coverage',
+    }
+  ],
+
+  questionGroups: [
+    { id: 'general', label: 'General Information Updates' },
+    { id: 'coverage', label: 'Coverage & Schedule Changes' },
+  ],
+
+  endorsements: [
+    {
+      id: 'blanket_coverage',
+      label: 'Blanket Coverage Endorsement',
+      description: 'Coverage provided on a blanket basis rather than scheduled items.',
+    }
+  ],
+
+  notices: [
+    {
+        variant: 'warn',
+        icon: 'info',
+        body: 'Insured values should reflect current replacement cost to avoid coinsurance penalties.',
+      }
+  ],
   },
 }
 
