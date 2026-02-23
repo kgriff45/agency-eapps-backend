@@ -36,19 +36,7 @@ function buildRenewalBody(clientRecord) {
       any needed changes.
     </p>
 
-    <!-- Callout box -->
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
-      <tr>
-        <td style="background:#f3f9f5;border-left:3px solid #156736;padding:14px 18px;border-radius:0 6px 6px 0;">
-          <p style="margin:0;color:#374151;font-size:13px;line-height:1.6;">
-            Please do not reply to this email, as this email box is not monitor. Please email your agent directly or
-            email us at proassuranceagency.com
-          </p>
-        </td>
-      </tr>
-    </table>
-
-    <p style="margin:0;color:#374151;font-size:15px;">
+    <p style="margin-top: 16px;color:#374151;font-size:15px;">
       Best regards,
     </p>
     <p style="margin-top: 16px;color:#374151;font-size:15px;">

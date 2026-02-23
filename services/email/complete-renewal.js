@@ -1,6 +1,6 @@
 const { sendEmail } = require('../../utils')
 
-const APP_BASE_URL = process.env.APP_BASE_URL ?? 'https://youragency.com'
+const APP_BASE_URL = process.env.APP_BASE_URL ?? 'https://youragency.com';
 
 function buildRenewalNoticeBody(clientRecord, linkId) {
   const onlineUrl  = `${APP_BASE_URL}/?linkId=${linkId}`
@@ -68,7 +68,7 @@ function buildRenewalNoticeBody(clientRecord, linkId) {
 
     <p style="margin:0 0 4px;color:#374151;font-size:15px;">
       Questions? Reply to this email or reach us at
-      <a href="mailto:support@youragency.com" style="color:#156736;">support@youragency.com</a>.
+      <a href="mailto:praagency@proassurance.com" style="color:#156736;">praagency@proassurance.com</a>.
     </p>
 
     <p style="margin:24px 0 0;color:#374151;font-size:15px;">
@@ -81,7 +81,7 @@ function buildRenewalNoticeBody(clientRecord, linkId) {
 function getRenewalNoticeRecipients(clientRecord) {
   return {
     to:  clientRecord.contact_email,
-    bcc: 'clientRecord?.account_manager_email',
+    bcc: 'kylegriffin@proassurance.com',
     replyTo: clientRecord.account_manager_email
   }
 }
