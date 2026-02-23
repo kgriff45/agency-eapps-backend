@@ -11,6 +11,8 @@ steps:
       - '--region'
       - '$_DEPLOY_REGION'
       - '--allow-unauthenticated'
+      - '--clear-command'
+      - '--clear-args'
 
 substitutions:
   _SERVICE_NAME: eappserver
