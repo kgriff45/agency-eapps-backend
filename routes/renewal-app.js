@@ -1,10 +1,11 @@
+//routes/renewal-app.js
 const express = require('express');
 const router = express.Router();
 
 const { clientdb, links } = require('../data/data');
 const policyTypes = require('../data/policy-schema');
 const { generateRenewalPDF, generateRenewalPDFBuffer } = require('../services/generate-docs/generate-renewal-pdf')
-const { sendRenewalEmail } = require('../services')
+const { sendRenewalEmail, runRenewalNotices } = require('../services')
 
 router.get('/policy-types', (req, res) => {
     res.json(policyTypes);
@@ -79,7 +80,7 @@ router.post('/:linkId/pdf', (req, res) => {
       res.status(500).json({ error: 'PDF generation failed', detail: err.message })
     }
   }
-})
+});
 
 router.post('/:linkId/complete-app', async (req, res) => {
   const { linkId } = req.params
@@ -131,7 +132,18 @@ router.post('/:linkId/complete-app', async (req, res) => {
     console.error('Email send failed:', err.message)
     res.status(500).json({ error: 'Email send failed', detail: err.message })
   }
-})
+});
+
+router.post('/tasks/send-renewal-task', async(req, res) => {
+  try{
+    console.log("Starting scheduled renewal job...");
+    await runRenewalNotices();
+    res.status(200).send('run renewal notices job completed successfully')
+  } catch (err) {
+    console.error('Job failed:', err);
+    res.status(500).send('Internal Server Error run renewal Apps');
+  }
+});
 
 
 

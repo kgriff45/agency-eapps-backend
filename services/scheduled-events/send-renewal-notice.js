@@ -1,6 +1,6 @@
-const cron = require("node-cron");
-const { sendRenewalNoticeEmail } = require("../services");
-const { clientdb, links } = require("../data/data");
+//services/scheduled-events/send-renewal-notice.js
+const { sendRenewalNoticeEmail } = require("../email/complete-renewal");
+const { clientdb, links } = require("../../data/data");
 
 async function runRenewalNotices() {
   for (const client of clientdb) {
@@ -21,15 +21,4 @@ async function runRenewalNotices() {
   }
 }
 
-cron.schedule(
-  "30 8 * * *",
-  async () => {
-    console.log("Running renewal job at 3:50 PM CST...");
-    await runRenewalNotices();
-  },
-  {
-    timezone: "America/Chicago",
-  }
-);
-
-console.log("Renewal scheduler started...");
+module.exports = { runRenewalNotices };
