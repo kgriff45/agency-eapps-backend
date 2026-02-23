@@ -59,8 +59,8 @@ function buildRenewalBody(clientRecord) {
 
 function getRenewalRecipients(clientRecord) {
   return {
-    to:  'kylegriffin45@outlook.com',
-    bcc: 'kyle@glacode.com',
+    to:  clientRecord?.contact_email,
+    bcc: 'kylegriffin@proassurance.com',
     replyTo: clientRecord?.account_manager_email
   }
 }

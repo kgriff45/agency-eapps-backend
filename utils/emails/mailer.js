@@ -22,15 +22,16 @@ function generateReplyAddress(clientId) {
   return `GLA-${padded}@${INBOUND_DOMAIN}`
 }
 
-async function sendEmail({ to, subject, bodyHtml, text, replyTo, attachments = [] }) {
+async function sendEmail({ to, bcc, subject, bodyHtml, text, replyTo, attachments = [] }) {
   const message = {
-    from:    `"${FROM_NAME}" <${FROM_ADDRESS}>`,
+    from: `"${FROM_NAME}" <${FROM_ADDRESS}>`,
     to,
     subject,
     html: EmailTemplate(bodyHtml),
     text: text ?? stripHtml(bodyHtml),
     ...(replyTo && { replyTo }),
     ...(attachments.length && { attachments }),
+    ...(bcc && { bcc })
   }
 
   try {

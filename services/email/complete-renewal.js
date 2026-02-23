@@ -81,7 +81,7 @@ function buildRenewalNoticeBody(clientRecord, linkId) {
 function getRenewalNoticeRecipients(clientRecord) {
   return {
     to:  clientRecord.contact_email,
-    bcc: 'kyle@glacode.com',
+    bcc: 'clientRecord?.account_manager_email',
     replyTo: clientRecord.account_manager_email
   }
 }
