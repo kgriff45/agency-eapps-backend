@@ -1,0 +1,28 @@
+{
+  "name": "e-apps-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fontsource/source-sans-pro": "^5.2.5",
+    "@fontsource/source-serif-pro": "^5.2.5",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^8.0.1",
+    "pdfkit": "^0.17.2",
+    "postmark": "^4.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.13"
+  }
+}
